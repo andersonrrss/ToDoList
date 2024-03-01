@@ -1,0 +1,86 @@
+html,
+body {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: gray;
+  font: normal 20px arial;
+}
+
+.container {
+  background-color: aliceblue;
+  padding: 20px;
+  border-radius: 5px;
+  width: 40%;
+
+  & #addTask {
+    display: flex;
+    flex-wrap: wrap; /* Permite que os elementos filhos quebrem para a próxima linha */
+    margin: 0 0 5% 0;
+    & #taskInput {
+      width: calc(75%); /* Ajusta a largura do taskInput */
+      margin: 0 2% 0 0;
+    }
+    & #submit {
+      width: 20%;
+    }
+  }
+
+  & #taskDisplay {
+    margin: 5% 0 0 0;
+    border-top: solid 1px gray;
+    font-size: small;
+    max-height: 100px; /* Altura fixa do contêiner */
+    overflow-y: auto; /* Adiciona uma barra de rolagem vertical quando necessário */
+  }
+}
+
+.task {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 1% 5%;
+
+  & span {
+    display: flex;
+    align-items: center;
+  }
+}
+.taskComplete {
+  color: green;
+}
+.complete .text {
+  text-decoration: line-through;
+}
+
+/* Se a largura do taskInput for menor que 200px, quebre para a próxima linha */
+@media (max-width: 800px) {
+  .container #addTask #taskInput {
+    width: 100%; /* Define a largura total para o taskInput */
+    margin: 0 0 2% 0; /* Margem inferior para separação */
+  }
+
+  .container #addTask #submit {
+    width: 100%; /* Define a largura total para o botão submit */
+  }
+}
+
+/* Media query para dispositivos com largura máxima de 600 pixels (típico de smartphones em modo retrato) */
+@media screen and (max-width: 600px) {
+  .container {
+    border-radius: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0; /* Remove margens para que o elemento ocupe toda a largura da tela */
+    & #taskDisplay{
+        max-height: none;
+      }
+  }
+  
+}
