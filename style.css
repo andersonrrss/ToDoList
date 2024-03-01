@@ -17,7 +17,7 @@ body {
   background-color: aliceblue;
   padding: 20px;
   border-radius: 5px;
-  width: 40%;
+  width: 35%;
 
   & #addTask {
     display: flex;
