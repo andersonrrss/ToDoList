@@ -38,10 +38,9 @@ function addTask() {
     tasks.push(task);
     localStorage.setItem("tasks", JSON.stringify(tasks));
     showTasks(tasks[tasks.length - 1]);
+    return 0;
   }
-
-  //DEBUGTOOL
-  console.table(JSON.parse(localStorage.getItem("tasks")));
+  alert("Digite uma tarefa")
 }
 
 //Mostrar as tarefas na tela do usuário
